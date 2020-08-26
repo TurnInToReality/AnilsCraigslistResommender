@@ -1,0 +1,41 @@
+{
+    "name": "Anil's Craigslist Recommender",
+    "version": "1",
+    "manifest_version": 2,
+    "description": "A plain text description about Anil's Craigslist Extension",
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "page_action": {
+        "default_icon": "icon16.png",
+        "default_title": "Anil's Craig'slist Recommender"
+    },
+    "author": "Anil Kotha",
+    "background": {
+        "scripts": [
+            "browserEventister.js"
+        ],
+        "persistent": false
+    },
+    "commands": {
+        "_execute_page_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+E",
+                "windows": "Alt+Shift+P",
+                "mac": "Alt+Shift+P"
+            }
+        }
+    },
+    "content_scripts": [
+        {
+          "matches": ["https://austin.craigslist.org/*"],
+          "js": ["contentScript.js"]
+        }
+      ],
+      "permissions": [
+        "activeTab",
+        "webNavigation"
+      ]
+}
